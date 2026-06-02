@@ -10,7 +10,7 @@ class NormalWalk :public WalkableRobot{
      public:
      void walk(){
         cout<<"WALKING NORMALLY"<<endl;
-     }
+    }
 };
 class NoWalk: public WalkableRobot{
      public:
