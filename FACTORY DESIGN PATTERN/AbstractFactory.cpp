@@ -19,7 +19,7 @@ class StandardBurger: public Burger{
     void prepare() override{
         cout << "Preparing Standard Burger with bun, patty, cheese, and lettuce!" << endl;
     }
-};
+} ;
 
 class PremiumBurger : public Burger{
     public:
