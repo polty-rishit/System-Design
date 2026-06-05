@@ -68,7 +68,7 @@ class Customer : public Payment{
 };
 
 int main(){
-    Payment *First=new Customer(new UPIPay(),new YesCardPay());
+    Payment *First=new Customer(new UPIPay(),new NoCardPay());
     First->payUpi();
     First->payCard();
     return 0;
