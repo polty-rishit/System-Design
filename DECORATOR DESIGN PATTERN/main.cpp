@@ -22,6 +22,7 @@ class CharacterDecorator : public Character{
         this->charecter=c;
     }
 };
+
 class HeightUp : public CharacterDecorator{
     public:
     HeightUp(Character *c):CharacterDecorator(c){}
