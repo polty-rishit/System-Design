@@ -1,21 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class HttpRequest{
-    public:
+class HttpRequest {
+private:
     string url;
     string method;
-    map<string,string>headers;
-    map<string,string>queryParams;
+    map<string, string> headers;
+    map<string,string> queryParams;
     string body;
-    int timeout;
+    int timeout; // in seconds
 
-    HttpRequest(){}
-    public:
-    friend class HttpRequestBuilder;
+    // Private constructor - can only be accessed by the Builder
+    HttpRequest() { }
 
-    void execute(){
-    cout << "Executing " << method << " request to " << url << endl;
+public:
+    friend class HttpRequestStepBuilder;
+
+    // Method to execute the HTTP request
+    void execute() {
+        cout << "Executing " << method << " request to " << url << endl;
         
         if (!queryParams.empty()) {
             cout << "Query Parameters:" << endl;
@@ -38,10 +41,12 @@ class HttpRequest{
     }
 };
 
+// forward declaration
 class MethodStep;
 class HeaderStep;
 class OptionalStep;
 
+// Step interfaces (Abstract classes)
 class UrlStep {
 public:
     virtual MethodStep& withUrl(const string& url) = 0;
@@ -65,6 +70,7 @@ public:
     virtual HttpRequest build() = 0;
 };
 
+// Concrete step builder that implements all steps
 class HttpRequestStepBuilder : 
     public UrlStep, 
     public MethodStep, 
@@ -127,4 +133,4 @@ int main() {
 
     stepRequest.execute();
 }
- 
+    
