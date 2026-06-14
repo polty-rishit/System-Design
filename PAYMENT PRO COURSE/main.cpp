@@ -36,7 +36,7 @@ class RazorPayBankingSystem : public BankingSystem{
     bool processPayment(double amount) override{
         cout<<"[BANKINGSYSTEM - RAZORPAY] PROCESSING PAYMENT OF "<<amount<<"----\n";
         int r=rand()%100;
-        return r<90;
+        return r<90 ;
     }
 };
 
